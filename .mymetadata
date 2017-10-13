@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="fastRun"
+  id="myeclipse.1481872209348"
+  context-root="/fastRun"
+  j2ee-spec="5.0"
+  archive="fastRun.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

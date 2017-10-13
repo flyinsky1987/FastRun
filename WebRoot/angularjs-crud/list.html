@@ -1,0 +1,65 @@
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <title>index.html</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+  </head>
+  <body  ng-app="person-app" ng-controller="person-controller">
+    	<div>
+    		<table width="90%" class="table">
+    			<thead>
+    				<th>序号</th>
+    				<th>姓名</th>
+    				<th>地址</th>
+    				<th>电话</th>
+    				<th>操作</th>
+    			</thead>
+    			<tbody>
+    				<tr ng-repeat="person in list"  >
+					    <td>{{$index}}</td>
+					    <td>{{ person.columns.name }}</td>
+					    <td>{{ person.columns.address }}</td>
+					    <td>{{ person.columns.phone }}</td>
+					    <td>
+					    	<button  class="btn btn-success"   data-toggle="modal" 	data-target="#edit_" ng-click="toEdit_($index)" 	>修改</button>
+					    	<button  class="btn btn-danger"    ng-click="delete_($index)"	>删除</button>
+					    </td>
+					</tr>
+    			</tbody>
+    		</table>
+    	</div> 
+    	 
+    	 
+    	 
+    	 <!-- 人员信息编辑 -->
+		<div class="modal fade" id="edit_" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				 <form action="../test/person/update" method="post" >
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header  btn-success">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">人员信息编辑</h4>
+				      </div>
+				      <div class="modal-body">
+				      		<input type="hidden" 	 	ng-model="person.id"		 name="person.id"/>
+				        	<P>姓名：<input type="text" ng-model="person.name" 	 	 name="person.name"/></p>
+					   		<P>住址：<input type="text" 	ng-model="person.address"	 name="person.address"/></P>
+					   		<P>电话：<input type="text" 	ng-model="person.phone"		 name="person.phone"/></P>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+				        <button type="submit" class="btn btn-success" >保存</button>
+				      </div>
+				    </div>
+				  </div>
+				  </form>
+		</div>
+		
+		
+		
+    	<script type="text/javascript" src="list.js"></script>
+  </body>
+</html>
